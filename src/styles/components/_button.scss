@@ -1,0 +1,19 @@
+.button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: $light-coral;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: darken($light-coral, 10%);
+    }
+
+    &:disabled {
+        background-color: $wheat;
+        color: $dark-slate-gray;
+        cursor: not-allowed;
+    }
+}
