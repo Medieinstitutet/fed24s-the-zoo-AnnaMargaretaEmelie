@@ -1,4 +1,4 @@
-import "../styles/components/_card.scss";
+import "../styles/main.scss";
 import { motion } from "framer-motion";
 
 type CardProps = {
