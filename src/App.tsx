@@ -1,4 +1,8 @@
-import "./App.scss";
+import { Route, Routes } from "react-router";
+import { Layout } from "./components/Layout";
+import { Home } from "./pages/Home";
+import { AnimalList } from "./pages/AnimalList";
+import { AnimalDetail } from "./pages/AnimalDetail";
 
 export function App() {
   return (
