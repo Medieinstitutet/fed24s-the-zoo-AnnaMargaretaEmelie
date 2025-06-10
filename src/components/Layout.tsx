@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router";
 
-export function Layout() {
+export const Layout = () => {
   return (
     <>
       <header>
@@ -13,4 +13,4 @@ export function Layout() {
       </main>
     </>
   );
-}
+};

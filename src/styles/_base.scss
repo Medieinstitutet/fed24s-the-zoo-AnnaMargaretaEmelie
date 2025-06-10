@@ -1,6 +1,8 @@
+@use "variables" as *;
+
 body {
     margin: 0;
     font-family: 'Press Start 2P', sans-serif;
-    background-color: wheat;
+    background-color: $wheat;
     color: $dark-slate-gray;
 }
