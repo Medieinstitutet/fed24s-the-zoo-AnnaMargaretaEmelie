@@ -1,5 +1,6 @@
 import { useFetch } from "../hooks/useFetch";
 import type { IAnimal } from "../models/Animal";
+import { AnimalCard } from "../components/AnimalCard";
 
 export const AnimalList = () => {
   const {
@@ -13,10 +14,7 @@ export const AnimalList = () => {
     <>
       <div className="animal-list">
         {animals?.map((animal) => (
-          <div key={animal.id}>
-            <h3>{animal.name}</h3>
-            <p>{animal.shortDescription}</p>
-          </div>
+          <AnimalCard key={animal.id} animal={animal} />
         ))}
       </div>
     </>

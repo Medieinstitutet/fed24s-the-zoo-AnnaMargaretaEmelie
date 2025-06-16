@@ -1,12 +1,12 @@
-import "../styles/main.scss";
+import "../styles/components/_card.scss";
+import type { IAnimal } from "../models/Animal";
 import { motion } from "framer-motion";
 
-type CardProps = {
-  name: string;
-  imageUrl: string;
-};
+interface CardProps {
+  animal: IAnimal;
+}
 
-export function AnimalCard({ name, imageUrl }: CardProps) {
+export const AnimalCard = ({ animal }: CardProps) => {
   return (
     <motion.div
       className="animal-card"
@@ -17,11 +17,12 @@ export function AnimalCard({ name, imageUrl }: CardProps) {
       transition={{ duration: 0.4 }}
     >
       <img
-        src={imageUrl}
-        alt={name}
+        src={animal.imageUrl}
+        alt={animal.name}
         onError={(e) => (e.currentTarget.src = "/fallback.png")}
       />
-      <h3>{name}</h3>
+      <h3>{animal.name}</h3>
+      <p>{animal.shortDescription}</p>
     </motion.div>
   );
-}
+};
