@@ -1,15 +1,16 @@
-import { useParams } from "react-router";
-import { useAnimals } from "../context/AnimalContext";
+import { useLoaderData } from "react-router";
+import { useAnimals } from "../hooks/useAnimals";
+import { useAnimalDispatch } from "../hooks/useAnimalDispatch";
 import { AnimalActionTypes } from "../reducers/AnimalActionTypes";
+import type { IAnimal } from "../models/IAnimal";
 
 export const AnimalDetail = () => {
-  const { id } = useParams();
-  const { animals, dispatch } = useAnimals();
+  const initialAnimal = useLoaderData() as IAnimal;
+  const { animals } = useAnimals();
+  const dispatch = useAnimalDispatch();
 
-  const animal = animals.find((a) => a.id === Number(id));
-
-  if (!animal) return <p>Kunde inte hitta ditt djur..</p>;
-
+  const animal =
+    animals.find((a) => a.id === initialAnimal.id) || initialAnimal;
   const lastFedStored = localStorage.getItem(`fed-${animal.id}`);
   const lastFed = animal.lastFed || lastFedStored;
 
