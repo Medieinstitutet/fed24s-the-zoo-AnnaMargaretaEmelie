@@ -1,4 +1,4 @@
-import type { IAnimal } from "../models/Animal";
+import type { IAnimal } from "../models/IAnimal";
 import  { AnimalActionTypes } from "./AnimalActionTypes";
 
 export type AnimalAction =  {

@@ -1,5 +1,5 @@
 import "../styles/components/_card.scss";
-import type { IAnimal } from "../models/Animal";
+import type { IAnimal } from "../models/IAnimal";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
@@ -23,16 +23,22 @@ export const AnimalCard = ({ animal }: ICardProps) => {
     return () => clearInterval(interval);
   }, [animal.id]);
 
-  const getStatus = () => {
-    if (!lastFed) return "Hungrig";
-
+  const getHoursSinceFed = () => {
+    if (!lastFed) return Infinity;
     const diff = now.getTime() - lastFed.getTime();
-    const hours = diff / (1000 * 60 * 60);
-    if (hours < 3) return "Mätt";
-    if (hours < 5) return "Snart hungrig";
-    return "Hungrig";
+    return diff / (1000 * 60 * 60);
   };
-  const status = getStatus();
+  const hours = getHoursSinceFed();
+
+  const statusText =
+    hours < 3 ? "Mätt" : hours < 5 ? "Snart hungrig" : "Mata genast!";
+  const statusClass =
+    hours < 3
+      ? "status-full"
+      : hours < 5
+      ? "status-warning"
+      : "status-critical";
+
   return (
     <Link to={`/animals/${animal.id}`} className="card-link">
       <motion.div
@@ -49,10 +55,8 @@ export const AnimalCard = ({ animal }: ICardProps) => {
           onError={(e) => (e.currentTarget.src = "/fallback.png")}
         />
         <h3>{animal.name}</h3>
-        <p className={`status ${status.toLowerCase().replace(" ", "-")}`}>
-          <span className="circle" />
-          {status}
-        </p>
+        <div className={`status-indicator ${statusClass}`}>{statusText}</div>
+
         <p>{animal.shortDescription}</p>
       </motion.div>
     </Link>

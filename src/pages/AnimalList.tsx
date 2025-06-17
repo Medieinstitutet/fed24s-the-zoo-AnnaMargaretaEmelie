@@ -1,5 +1,5 @@
 import { useFetch } from "../hooks/useFetch";
-import type { IAnimal } from "../models/Animal";
+import type { IAnimal } from "../models/IAnimal";
 import { AnimalCard } from "../components/AnimalCard";
 
 export const AnimalList = () => {
