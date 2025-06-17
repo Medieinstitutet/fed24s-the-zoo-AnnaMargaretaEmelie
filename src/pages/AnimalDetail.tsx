@@ -32,6 +32,12 @@ export const AnimalDetail = () => {
     ? "status-warning"
     : "status-critical";
 
+  const statusText = isFull
+    ? "Mätt"
+    : isGettingHungry
+    ? "Snart hungrig"
+    : "Mata genast!";
+
   const handleFeed = () => {
     dispatch({ type: AnimalActionTypes.FED, payload: animal.id });
   };
@@ -49,21 +55,8 @@ export const AnimalDetail = () => {
           {animal.longDescription ||
             "Ingen ytterligare information är tillgänglig."}
         </p>
-        <div className={`status-indicator ${statusClass}`}>
-          {isFull
-            ? "Mätt"
-            : isGettingHungry
-            ? "Snart hungrig"
-            : "Behöver mat NU!"}
-        </div>
-        <p>
-          Status:{" "}
-          {isFull
-            ? "Mätt"
-            : isGettingHungry
-            ? "Snart hungrig"
-            : "Behöver mat NU!"}
-        </p>
+        <div className={`status-indicator ${statusClass}`}>{statusText}</div>
+
         <button onClick={handleFeed} disabled={!isDesperate}>
           {isDesperate ? "Mata" : "Inte hungrig"}
         </button>
