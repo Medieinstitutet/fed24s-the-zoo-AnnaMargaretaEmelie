@@ -1,27 +1,24 @@
-import { useLoaderData } from "react-router";
+import { useParams } from "react-router";
 import { useAnimals } from "../hooks/useAnimals";
 import { useAnimalDispatch } from "../hooks/useAnimalDispatch";
 import { AnimalActionTypes } from "../reducers/AnimalActionTypes";
-import type { IAnimal } from "../models/IAnimal";
 
 export const AnimalDetail = () => {
-  const initialAnimal = useLoaderData() as IAnimal;
+  const { id } = useParams();
   const { animals } = useAnimals();
   const dispatch = useAnimalDispatch();
 
-  const animal =
-    animals.find((a) => a.id === initialAnimal.id) || initialAnimal;
-  const lastFedStored = localStorage.getItem(`fed-${animal.id}`);
-  const lastFed = animal.lastFed || lastFedStored;
+  const animal = animals.find((a) => a.id === Number(id));
+  console.log("Djur i context:", animals);
+  console.log("ID från URL:", id);
 
-  const getHoursSince = (time: string) => {
-    const now = new Date();
-    const fedTime = new Date(time);
-    const diffMs = now.getTime() - fedTime.getTime();
-    return diffMs / (1000 * 60 * 60);
-  };
+  if (!animal) return <p>Djuret kunde inte hittas</p>;
 
-  const hoursSinceFed = lastFed ? getHoursSince(lastFed) : Infinity;
+  const lastFed = animal.lastFed;
+
+  const hoursSinceFed = lastFed
+    ? (Date.now() - new Date(lastFed).getTime()) / (1000 * 60 * 60)
+    : Infinity;
 
   const isDesperate = hoursSinceFed >= 4;
   const isGettingHungry = hoursSinceFed >= 3 && hoursSinceFed < 4;

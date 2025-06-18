@@ -15,6 +15,7 @@ export const router = createBrowserRouter([
         <Layout />
       </AnimalProvider>
     ),
+    loader: animalsLoader,
 
     children: [
       { index: true, element: <Home /> },

@@ -5,18 +5,23 @@ export type AnimalAction =  {
     type: AnimalActionTypes; 
     payload: IAnimal[] | number;}
 
-export const animalReducer = (state: IAnimal[], action: AnimalAction):IAnimal[] =>{
+export const animalReducer = (state: IAnimal[], action: AnimalAction): IAnimal[] =>{
     switch (action.type) {
         case AnimalActionTypes.SET: {
-            const animals = action.payload as IAnimal[]
+            const animals = action.payload as IAnimal[];
+            localStorage.setItem("animals", JSON.stringify(animals));
             return animals; }
 
         case AnimalActionTypes.FED: {
         const id = action.payload as number;
-        const now = new Date().toISOString();
-        localStorage.setItem(`fed-${id}`, now);
-        return state.map((a)=> a.id === id ? { ...a,lastFed: now }: a
-    );
+        const fedTime = new Date().toISOString();
+        
+        const updatedAnimals = state.map((animal) => animal.id === id ? { ...animal, lastFed:fedTime}: animal)
+
+        localStorage.setItem(`fed-${id}`, fedTime);
+        localStorage.setItem("animals", JSON.stringify(updatedAnimals));
+
+        return  updatedAnimals;
 }
         default: return state;
     }
