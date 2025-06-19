@@ -34,38 +34,46 @@
     }
 
     h3 {
-        font-size: 1rem;
+        font-size: 1.2rem;
         color: $dark-slate-gray;
     }
 
     p {
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: $dark-cyan;
     }
 }
-.status {
-    display: flex;
+.status-indicator {
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
     font-weight: bold;
-    margin: 0.5rem 0;
+    color: $dark-slate-gray;
+    white-space: nowrap;
+    
 
-    .circle {
+    &::before {
+        content: "";
+        flex-shrink: 0;
         width: 0.8rem;
         height: 0.8rem;
+        min-width: 0.8rem;
+        max-width: 0.8rem;
         border-radius: 50%;
         display: inline-block;
     }
 
-    &.mätt .circle {
+    &.status-full::before {
         background-color: $asparagus;
     }
 
-    &.snart-hungrig .circle {
+    &.status-warning::before {
         background-color: $hunyadi-yellow;
     }
 
-    &.hungrig .circle {
+    &.status-critical::before {
         background-color: $light-coral;
         animation: pulse 1.3s infinite;
     }

@@ -4,5 +4,5 @@ export interface IAnimal {
     shortDescription: string;
     longDescription: string;
     imageUrl: string;
-    isFed: boolean;
+    lastFed?: string; 
 }

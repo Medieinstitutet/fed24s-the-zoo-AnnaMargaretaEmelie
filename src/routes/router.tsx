@@ -3,16 +3,31 @@ import { Layout } from "../components/Layout";
 import { Home } from "../pages/Home";
 import { AnimalList } from "../pages/AnimalList";
 import { AnimalDetail } from "../pages/AnimalDetail";
+import { AnimalProvider } from "../context/AnimalProvider";
+import { animalLoader } from "../loaders/animalLoader";
+import { animalsLoader } from "../loaders/animalsLoader";
+import { ErrorFallback } from "../components/ErrorFallback";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
-    errorElement: <p>Sidan kunde inte laddas</p>,
+    element: (
+      <AnimalProvider>
+        <Layout />
+      </AnimalProvider>
+    ),
+    loader: animalsLoader,
+
     children: [
       { index: true, element: <Home /> },
-      { path: "animals", element: <AnimalList /> },
-      { path: "animals/:id", element: <AnimalDetail /> },
+      { path: "animals", element: <AnimalList />, loader: animalsLoader },
+      {
+        path: "animals/:id",
+        element: <AnimalDetail />,
+        loader: animalLoader,
+        errorElement: <ErrorFallback />,
+      },
+      { path: "*", element: <p>Sidan kunde inte hittas.</p> },
     ],
   },
 ]);
