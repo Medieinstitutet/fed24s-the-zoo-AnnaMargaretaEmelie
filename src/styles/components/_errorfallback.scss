@@ -1,0 +1,46 @@
+@use "../variables" as *;
+
+.error-fallback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+    min-height: 50vh;
+    text-align: center;
+
+    .error-box {
+        background-color: white;
+        border: 2px dashed $light-coral;
+        padding: 2rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        max-width: 400px;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: $light-coral;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: $dark-slate-gray;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: $asparagus;
+            color: white;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: ($asparagus, 10%);
+            }
+        }
+    }
+}
