@@ -31,7 +31,7 @@ export const AnimalCard = ({ animal }: ICardProps) => {
   const hours = getHoursSinceFed();
 
   const statusText =
-    hours < 3 ? "Mätt" : hours < 5 ? "Snart hungrig" : "Mata genast!";
+    hours < 3 ? "Mätt" : hours < 5 ? "Snart hungrig" : "Behöver mat!";
   const statusClass =
     hours < 3
       ? "status-full"
