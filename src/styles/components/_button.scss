@@ -1,21 +1,37 @@
 @use "../variables" as *;
 
-.button {
+.feed-button {
+    display: inline-flex;
+    max-width: max-content;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: $chili-red;
+    color: $wheat-light;
     padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: $font-headline;
     border: none;
     border-radius: 1rem;
-    background-color: $light-coral;
-    color: white;
     cursor: pointer;
-    transition: all 0.2s;
-
+    text-shadow: 0.5px 0.5px 0 $jasmine;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    margin-top: 1rem;
+  
+    svg {
+      flex-shrink: 0;
+    }
+  
     &:hover {
-        background-color: darken($light-coral, 10%);
+      background-color: $light-coral;
+      transform: scale(1.05);
     }
-
+  
     &:disabled {
-        background-color: $wheat;
-        color: $dark-slate-gray;
-        cursor: not-allowed;
+      background-color: $dark-cyan;
+      cursor: not-allowed;
+      opacity: 0.6;
+      transform: none;
     }
-}
+  }
+  

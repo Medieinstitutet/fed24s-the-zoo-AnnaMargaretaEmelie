@@ -2,6 +2,9 @@ import { useParams } from "react-router";
 import { useAnimals } from "../hooks/useAnimals";
 import { useAnimalDispatch } from "../hooks/useAnimalDispatch";
 import { AnimalActionTypes } from "../reducers/AnimalActionTypes";
+import "../styles/components/_button.scss";
+import { HandPlatter } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const AnimalDetail = () => {
   const { id } = useParams();
@@ -34,7 +37,7 @@ export const AnimalDetail = () => {
     ? "Mätt"
     : isGettingHungry
     ? "Snart hungrig"
-    : "Mata genast!";
+    : "Jättehungrig";
 
   const handleFeed = () => {
     dispatch({ type: AnimalActionTypes.FED, payload: animal.id });
@@ -49,15 +52,25 @@ export const AnimalDetail = () => {
           alt={animal.name}
           onError={(e) => (e.currentTarget.src = "/fallback.png")}
         />
+
+        <div className={`status-indicator ${statusClass}`}>{statusText}</div>
+
+        <motion.button
+          className="feed-button"
+          onClick={handleFeed}
+          disabled={!isDesperate}
+          whileTap={{
+            scale: [1, 1.1, 0.9, 1.05, 1],
+            transition: { duration: 0.4 },
+          }}
+        >
+          <HandPlatter size={18} style={{ marginRight: "0.5rem" }} />
+          {isDesperate ? "Mata mig!" : "Inte hungrig"}
+        </motion.button>
         <p>
           {animal.longDescription ||
             "Ingen ytterligare information är tillgänglig."}
         </p>
-        <div className={`status-indicator ${statusClass}`}>{statusText}</div>
-
-        <button onClick={handleFeed} disabled={!isDesperate}>
-          {isDesperate ? "Mata" : "Inte hungrig"}
-        </button>
       </div>
     </>
   );

@@ -41,7 +41,7 @@ export const AnimalCard = ({ animal }: ICardProps) => {
 
   return (
     <Link to={`/animals/${animal.id}`} className="card-link">
-      <motion.div
+      <motion.article
         className="animal-card"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -49,16 +49,19 @@ export const AnimalCard = ({ animal }: ICardProps) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <img
-          src={animal.imageUrl}
-          alt={animal.name}
-          onError={(e) => (e.currentTarget.src = "/fallback.png")}
-        />
+        <div className="image-wrapper">
+          <img
+            src={animal.imageUrl}
+            alt={animal.name}
+            onError={(e) => (e.currentTarget.src = "/fallback.png")}
+          />
+
+          <div className={`status-indicator ${statusClass}`}>{statusText}</div>
+        </div>
         <h3>{animal.name}</h3>
-        <div className={`status-indicator ${statusClass}`}>{statusText}</div>
 
         <p>{animal.shortDescription}</p>
-      </motion.div>
+      </motion.article>
     </Link>
   );
 };
