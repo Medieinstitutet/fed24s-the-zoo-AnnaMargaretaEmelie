@@ -1,11 +1,20 @@
-import { Outlet, Link } from "react-router";
+import { Outlet, NavLink } from "react-router";
 
 export const Layout = () => {
   return (
     <>
       <header>
         <nav>
-          <Link to={"/"}>Start</Link> | <Link to={"/animals"}>Alla djur</Link>
+          <ul className="nav-links">
+            <li>
+              <NavLink to="/" end>
+                Start
+              </NavLink>{" "}
+            </li>
+            <li>
+              <NavLink to="/animals">Alla djur</NavLink>
+            </li>
+          </ul>
         </nav>
       </header>
       <main>

@@ -2,6 +2,9 @@ import { useParams } from "react-router";
 import { useAnimals } from "../hooks/useAnimals";
 import { useAnimalDispatch } from "../hooks/useAnimalDispatch";
 import { AnimalActionTypes } from "../reducers/AnimalActionTypes";
+import "../styles/components/_button.scss";
+import { HandPlatter, Clock } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const AnimalDetail = () => {
   const { id } = useParams();
@@ -9,8 +12,6 @@ export const AnimalDetail = () => {
   const dispatch = useAnimalDispatch();
 
   const animal = animals.find((a) => a.id === Number(id));
-  console.log("Djur i context:", animals);
-  console.log("ID från URL:", id);
 
   if (!animal) return <p>Djuret kunde inte hittas</p>;
 
@@ -20,45 +21,52 @@ export const AnimalDetail = () => {
     ? (Date.now() - new Date(lastFed).getTime()) / (1000 * 60 * 60)
     : Infinity;
 
-  const isDesperate = hoursSinceFed >= 4;
-  const isGettingHungry = hoursSinceFed >= 3 && hoursSinceFed < 4;
-  const isFull = hoursSinceFed < 3;
-
-  const statusClass = isFull
-    ? "status-full"
-    : isGettingHungry
-    ? "status-warning"
-    : "status-critical";
-
-  const statusText = isFull
-    ? "Mätt"
-    : isGettingHungry
-    ? "Snart hungrig"
-    : "Mata genast!";
-
   const handleFeed = () => {
     dispatch({ type: AnimalActionTypes.FED, payload: animal.id });
   };
 
-  return (
-    <>
-      <div className="animal-detail">
-        <h2>{animal.name}</h2>
-        <img
-          src={animal.imageUrl}
-          alt={animal.name}
-          onError={(e) => (e.currentTarget.src = "/fallback.png")}
-        />
-        <p>
-          {animal.longDescription ||
-            "Ingen ytterligare information är tillgänglig."}
-        </p>
-        <div className={`status-indicator ${statusClass}`}>{statusText}</div>
+  const formatFedTime = (date: Date) =>
+    date.toLocaleString("sv-SE", {
+      dateStyle: "long",
+      timeStyle: "short",
+    });
 
-        <button onClick={handleFeed} disabled={!isDesperate}>
-          {isDesperate ? "Mata" : "Inte hungrig"}
-        </button>
-      </div>
-    </>
+  return (
+    <div className="animal-detail">
+      <h2>{animal.name}</h2>
+      <img
+        src={animal.imageUrl}
+        alt={animal.name}
+        onError={(e) => (e.currentTarget.src = "/fallback.png")}
+      />
+
+      <p className="last-fed">
+        <Clock />
+        Senast matad:{" "}
+        {lastFed && new Date(lastFed).getFullYear() >= 2022 ? (
+          formatFedTime(new Date(lastFed))
+        ) : (
+          <strong>Aldrig</strong>
+        )}{" "}
+      </p>
+
+      <motion.button
+        className="feed-button"
+        onClick={handleFeed}
+        disabled={hoursSinceFed < 5}
+        whileTap={{
+          scale: [1, 1.1, 0.9, 1.05, 1],
+          transition: { duration: 0.4 },
+        }}
+      >
+        <HandPlatter size={18} style={{ marginRight: "0.5rem" }} />
+        {hoursSinceFed >= 5 ? "Mata mig!" : "Inte hungrig"}
+      </motion.button>
+
+      <p>
+        {animal.longDescription ||
+          "Ingen ytterligare information är tillgänglig."}
+      </p>
+    </div>
   );
 };
