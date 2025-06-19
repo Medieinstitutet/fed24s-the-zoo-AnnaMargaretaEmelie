@@ -1,14 +1,11 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
-
 
 $font-headline: "Press Start 2P", cursive;
 $font-body: "VT323", monospace;
 
-
-
 $chili-red: #D4432Bff;
 $wheat: #E8D3A8ff;
+$wheat-light: lighten($wheat, 10%);
 $hunyadi-yellow: #EBAC4Eff;
 $jasmine: #E8C86Fff;
 $dark-slate-gray: #2D484Dff;
