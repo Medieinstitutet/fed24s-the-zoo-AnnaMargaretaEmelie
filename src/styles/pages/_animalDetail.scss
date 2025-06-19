@@ -1,0 +1,76 @@
+@use "../variables" as *;
+
+.animal-detail {
+  background-color: $jasmine;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: $font-body;
+  color: $dark-slate-gray;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    font-family: $font-headline;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 1rem;
+    object-fit: contain;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .status-indicator {
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    width: fit-content;
+    align-self: center;
+
+    &.status-full {
+      background-color: $asparagus;
+    }
+    &.status-warning {
+      background-color: $hunyadi-yellow;
+    }
+    &.status-critical {
+      background-color: $light-coral;
+    }
+  }
+
+  button {
+    align-self: center;
+    background-color: $jungle-green;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:disabled {
+      background-color: $dark-cyan;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $dark-cyan;
+    }
+  }
+}
