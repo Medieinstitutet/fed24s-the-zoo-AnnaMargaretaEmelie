@@ -21,6 +21,13 @@ export const AnimalDetail = () => {
     ? (Date.now() - new Date(lastFed).getTime()) / (1000 * 60 * 60)
     : Infinity;
 
+  const statusText =
+    hoursSinceFed < 3
+      ? "Mätt och glad"
+      : hoursSinceFed < 4
+      ? "Börjar kurra"
+      : "Hungrig";
+
   const handleFeed = () => {
     dispatch({ type: AnimalActionTypes.FED, payload: animal.id });
   };
@@ -47,20 +54,21 @@ export const AnimalDetail = () => {
           formatFedTime(new Date(lastFed))
         ) : (
           <strong>Aldrig</strong>
-        )}{" "}
+        )}
+        {", "}Status: {statusText}
       </p>
 
       <motion.button
         className="feed-button"
         onClick={handleFeed}
-        disabled={hoursSinceFed < 5}
+        disabled={hoursSinceFed < 4}
         whileTap={{
           scale: [1, 1.1, 0.9, 1.05, 1],
           transition: { duration: 0.4 },
         }}
       >
         <HandPlatter size={18} style={{ marginRight: "0.5rem" }} />
-        {hoursSinceFed >= 5 ? "Mata mig!" : "Inte hungrig"}
+        {hoursSinceFed >= 4 ? "Mata mig!" : "Inte hungrig"}
       </motion.button>
 
       <p>
