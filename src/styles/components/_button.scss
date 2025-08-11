@@ -1,0 +1,37 @@
+@use "../variables" as *;
+
+.feed-button {
+    display: inline-flex;
+    max-width: max-content;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: $chili-red;
+    color: $wheat-light;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-family: $font-headline;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-shadow: 0.5px 0.5px 0 $jasmine;
+    box-shadow: 2px 2px 0 $dark-slate-gray;;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    margin-top: 1rem;
+  
+    svg {
+      flex-shrink: 0;
+    }
+  
+    &:hover {
+      background-color: $light-coral;
+      transform: scale(1.05);
+    }
+  
+    &:disabled {
+      background-color: $dark-cyan;
+      cursor: not-allowed;
+      opacity: 0.6;
+      transform: none;
+    }
+  }
+  

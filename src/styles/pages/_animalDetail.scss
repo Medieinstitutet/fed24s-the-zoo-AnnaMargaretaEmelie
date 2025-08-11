@@ -1,0 +1,55 @@
+@use "../variables" as *;
+
+.animal-detail {
+  background-color: $wheat;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 2px 2px 0 $dark-slate-gray;
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: $font-body;
+  color: $dark-slate-gray;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+  h2 {
+    font-size: 2rem;
+    font-family: $font-headline;
+    text-align: center;
+    color: $chili-red;
+    text-shadow: 2px 2px 0 $jasmine;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 1rem;
+    object-fit: contain;
+    filter: grayscale(100%);
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .last-fed {
+    font-size: 1rem;
+    font-style: italic;
+
+    strong {
+      color: $chili-red;
+    }
+
+    svg {
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.5rem;
+    }
+  
+  }
+}

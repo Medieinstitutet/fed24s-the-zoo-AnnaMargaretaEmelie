@@ -1,0 +1,131 @@
+@use "../variables" as *;
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.image-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  
+    img {
+      width: 100%;
+      height: 100%;
+      filter: grayscale(100%);
+      object-fit: cover;
+      display: block;
+    }
+  
+    .status-indicator {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 0.5rem;
+      background-color: $wheat-light;
+      padding: 0.4rem 0.6rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      color: $dark-slate-gray;
+      box-shadow: 2px 2px 0 $dark-slate-gray;;
+      z-index: 2;
+    }
+  }
+.card-link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+  
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+
+.animal-card {
+  background: $wheat;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 0 $dark-slate-gray;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  height: 100%;
+  gap: 0.5rem;
+  font-family: $font-body;
+  transition: transform 0.2s ease;
+
+
+
+  h3 {
+    font-size: 1.2rem;
+    font-family: $font-headline;
+    color: $chili-red;
+    margin-top: 0.75rem;
+    text-decoration: none;
+    text-shadow: 2px 2px 0 $jasmine;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: $dark-slate-gray;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  a,
+  a:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: $dark-slate-gray;
+  white-space: nowrap;
+
+  &::before {
+    content: "";
+    flex-shrink: 0;
+    width: 0.8rem;
+    height: 0.8rem;
+    min-width: 0.8rem;
+    max-width: 0.8rem;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  &.status-full::before {
+    background-color: $asparagus;
+  }
+
+  &.status-warning::before {
+    background-color: $hunyadi-yellow;
+  }
+
+  &.status-critical::before {
+    background-color: $light-coral;
+    animation: pulse 1.3s infinite;
+  }
+}
