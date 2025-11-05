@@ -68,14 +68,10 @@ Ha roligt, skratta och lär er massor!
 
 
 ## 🔍 ESLint-varningar:
+- C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-AnnaMargaretaEmelie\src\reducers\AnimalActionTypes.ts - no-unused-vars - 'SET' is defined but never used.,no-unused-vars - 'FED' is defined but never used.
 
-
-## 🏆 **Betyg: IG**
-📌 **Motivering:** Koden saknar flera centrala komponenter och funktioner som krävs enligt uppgiftens kravbeskrivning. Det finns ingen implementation av en router för att visa olika sidor i applikationen, och det finns inga funktioner för att hantera djuren eller deras matningsstatus. Det finns också ingen hantering för trasiga bildlänkar, och ingen avancerad stylingteknik används utöver grundläggande CSS.
+## 🏆 **Betyg: VG**
+📌 **Motivering:** Projektet uppfyller alla G-krav och nästan alla VG-krav. Routers och routes är implementerade och klarar att visa olika sidor, liksom en djur-översiktssida där djur kan klickas på. Det finns stöd för matning av djur och hantering av trasiga bildlänkar. Styling är utförd med SCSS och animationer är subtilt integrerade i projektet. Context API används istället för props för komponentkommunikation, och reducers används för att hantera djurens tillstånd. Projektet använder en tjänst eller custom hook för att hämta data, vilket var ett VG-krav som är upplyst som uppfyllt.
 
 💡 **Förbättringsförslag:**  
-1. Implementera en router för att hantera olika sidor i applikationen, inklusive startsidan och djursidorna.
-2. Lägg till funktioner för att mata djuren och spara tiden då de matades, samt visa deras matningsstatus på både djurdetaljsidan och översiktssidan.
-3. Skapa en funktion för att hantera trasiga bildlänkar.
-4. Använd en avancerad stylingmetod som SCSS eller Tailwind för att förbättra stylinghanteringen i projektet.
-5. Lägg till lite grundläggande innehåll i App-komponenten för att börja bygga ut grunden för sidan.
+Projektet visar ingen tydlig utvärdering av matninshistoriken vid återkomst till djursidan. För att förbättra kan du säkerställa att mata-funktionen nollställs korrekt baserat på matningstiderna som specificeras i uppgiften. Code quality kan ökas genom att ytterligare kommentera logik där reducer och context API används, eftersom dessa används för avancerad tillståndshantering.
