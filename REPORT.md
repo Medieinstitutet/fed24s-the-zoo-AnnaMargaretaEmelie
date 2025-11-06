@@ -71,7 +71,7 @@ Ha roligt, skratta och lär er massor!
 - C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-AnnaMargaretaEmelie\src\reducers\AnimalActionTypes.ts - no-unused-vars - 'SET' is defined but never used.,no-unused-vars - 'FED' is defined but never used.
 
 ## 🏆 **Betyg: VG**
-📌 **Motivering:** Projektet uppfyller alla krav för G och de flesta krav för VG. Användning av context, reducer och subtila animeringar är tillämpade korrekt.
+📌 **Motivering:** Projektet uppfyller alla krav för både betyg G och VG. Koden är välstrukturerad, komponenter är ordentligt separerade, och de flesta viktiga funktionerna är implementerade och fungerar som förväntat.
 
 💡 **Förbättringsförslag:**  
-Projektet är väl genomförd, men det kan vara bra att säkerställa att alla användarflöden är helt testade för att fånga eventuella osynliga buggar eller användarupplevelsefrågor.
+För att ytterligare förbättra kodkvaliteten kan kodens läsbarhet förbättras genom att lägga till fler kommentarer och dokumentation. Eventuellt kan fler tests inkluderas för att säkerställa högre kodsäkerhet.
