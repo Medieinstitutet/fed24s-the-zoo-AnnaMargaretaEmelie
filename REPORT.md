@@ -1,7 +1,6 @@
 # 📌 Rättningsrapport – fed24s-the-zoo-AnnaMargaretaEmelie
 
 ## 🎯 Uppgiftens Krav:
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/xBUCHFwF)
 # The Zoo
 
 I denna inlämningsuppgift kommer ni att bygga ett zoo. Zoo:t har ett antal djur som kommer behöva matas. 
@@ -66,12 +65,14 @@ Välj en teknik gällande css som ni antingen vill lära er mer om eller som ni 
 
 Ha roligt, skratta och lär er massor!
 
-
 ## 🔍 ESLint-varningar:
-- C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-AnnaMargaretaEmelie\src\reducers\AnimalActionTypes.ts - no-unused-vars - 'SET' is defined but never used.,no-unused-vars - 'FED' is defined but never used.
+- /app/repos/fed24s-the-zoo-AnnaMargaretaEmelie/src/reducers/AnimalActionTypes.ts - no-unused-vars - 'SET' is defined but never used.,no-unused-vars - 'FED' is defined but never used.
 
 ## 🏆 **Betyg: VG**
-📌 **Motivering:** Projektet uppfyller alla krav för både betyg G och VG. Koden är välstrukturerad, komponenter är ordentligt separerade, och de flesta viktiga funktionerna är implementerade och fungerar som förväntat.
+📌 **Motivering:** Projektet 'The Zoo' av AnnaMargaretaEmelie uppfyller alla krav för både G och VG. Koden är exceptionellt väl implementerad med en tydlig och logisk struktur. Den följer etablerade konventioner för frontend-utveckling och använder Reacts best practices, inklusive hooks och context. Funktionaliteten är komplett och användargränssnittet är både intuitivt och estetiskt tilltalande. Användningen av context och reducers för state-hantering samt subtila animeringar är effektivt genomförd.
 
 💡 **Förbättringsförslag:**  
-För att ytterligare förbättra kodkvaliteten kan kodens läsbarhet förbättras genom att lägga till fler kommentarer och dokumentation. Eventuellt kan fler tests inkluderas för att säkerställa högre kodsäkerhet.
+För att ytterligare förbättra projektet kan följande övervägas: 
+1. Förbättra dokumentationen genom att lägga till fler kommentarer i koden, särskilt i mer komplexa delar, för att öka läsbarheten och underlätta för framtida utvecklare. 
+2. Optimera prestandan ytterligare genom att implementera lazy loading för bilder och komponenter som inte är kritiska vid sidladdning. 
+3. Säkerställ att alla komponenter har enhetliga testfall för att förbättra kodens tillförlitlighet och underhållbarhet.
