@@ -69,10 +69,7 @@ Ha roligt, skratta och lär er massor!
 - /app/repos/fed24s-the-zoo-AnnaMargaretaEmelie/src/reducers/AnimalActionTypes.ts - no-unused-vars - 'SET' is defined but never used.,no-unused-vars - 'FED' is defined but never used.
 
 ## 🏆 **Betyg: VG**
-📌 **Motivering:** Projektet 'The Zoo' av AnnaMargaretaEmelie uppfyller alla krav för både G och VG. Koden är exceptionellt väl implementerad med en tydlig och logisk struktur. Den följer etablerade konventioner för frontend-utveckling och använder Reacts best practices, inklusive hooks och context. Funktionaliteten är komplett och användargränssnittet är både intuitivt och estetiskt tilltalande. Användningen av context och reducers för state-hantering samt subtila animeringar är effektivt genomförd.
+📌 **Motivering:** Projektet uppfyller alla krav för både G och VG. Koden är exceptionellt välstrukturerad och organiserad med en tydlig uppdelning av komponenter och moduler. Projektet använder React Router för navigering och implementerar layouts, child-routes och error-element korrekt. Context API och reducers används för state management, vilket är i linje med VG-kraven. Custom hooks används för datahämtning, och SCSS används för styling tillsammans med subtila animeringar. Felhantering är implementerad, och trasiga bildlänkar hanteras korrekt. Den höga kodkvaliteten och fullständiga kravuppfyllelsen motiverar det högsta tillåtna betyget, VG.
 
 💡 **Förbättringsförslag:**  
-För att ytterligare förbättra projektet kan följande övervägas: 
-1. Förbättra dokumentationen genom att lägga till fler kommentarer i koden, särskilt i mer komplexa delar, för att öka läsbarheten och underlätta för framtida utvecklare. 
-2. Optimera prestandan ytterligare genom att implementera lazy loading för bilder och komponenter som inte är kritiska vid sidladdning. 
-3. Säkerställ att alla komponenter har enhetliga testfall för att förbättra kodens tillförlitlighet och underhållbarhet.
+För att ytterligare förbättra projektet kan kommentarer läggas till för att förklara mer komplexa delar av koden, särskilt i reducer-funktionen och custom hooks. Det skulle också vara fördelaktigt att inkludera en README.md-fil för att ge en översikt över projektet och instruktioner för att köra det lokalt. Slutligen, säkerställ att alla beroenden är korrekt listade i package.json för att underlätta installationen.
